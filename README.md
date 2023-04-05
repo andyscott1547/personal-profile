@@ -168,11 +168,45 @@ terraform destroy --auto-approve
 ## Terraform-Docs
 
 <!-- BEGIN_TF_DOCS -->
-{{ .Content }}
+#### Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | ~> 1.0 |
+| aws | ~> 4.0 |
+
+#### Providers
+
+| Name | Version |
+|------|---------|
+| aws | 4.34.0 |
+
+#### Modules
+
+| Name | Source | Version |
+|------|--------|---------|
+| cdn | ./modules/s3_cloudfront | n/a |
+
+#### Resources
+
+| Name | Type |
+|------|------|
+| [aws_s3_object.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_object) | resource |
+
+#### Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| region | value for the region | `string` | `"eu-west-1"` | no |
+| tags | value for the tags | `map(string)` | `{}` | no |
+
+#### Outputs
+
+No outputs.
 <!-- END_TF_DOCS -->
 
-### Example Module
+### S3 Cloudfront Module
 
-<!-- BEGIN_EXAMPLE_DOCS -->
+<!-- S3_CLOUDFRONT -->
 {{ .Content }}
-<!-- END_EXAMPLE_DOCS -->
+<!-- S3_CLOUDFRONT -->
