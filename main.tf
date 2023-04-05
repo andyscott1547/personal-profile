@@ -1,5 +1,7 @@
 # main
 
-module "example" {
-  source = "./modules/example"
+module "cdn" {
+  source      = "./modules/s3_cloudfront"
+  name        = "pegasustechnology"
+  domain_name = "pegasus-technology.co.uk"
 }
