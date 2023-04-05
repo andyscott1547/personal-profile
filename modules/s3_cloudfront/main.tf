@@ -106,7 +106,7 @@ resource "aws_cloudfront_distribution" "this" {
   default_root_object = "index.html"
   enabled             = true
   is_ipv6_enabled     = true
-  aliases             = [var.domain_name, "www.${var.domain_name}", "dev.${var.domain_name}"]
+  aliases             = [var.domain_name]
 
   default_cache_behavior {
     compress = true
@@ -173,13 +173,13 @@ resource "aws_route53_record" "root" {
   }
 }
 
-resource "aws_route53_record" "www" {
-  zone_id = data.aws_route53_zone.selected.zone_id
-  name    = "www.${var.domain_name}"
-  type    = "CNAME"
-  records = [var.domain_name]
-  ttl     = 300
-}
+# resource "aws_route53_record" "www" {
+#   zone_id = data.aws_route53_zone.selected.zone_id
+#   name    = "www.${var.domain_name}"
+#   type    = "CNAME"
+#   records = [var.domain_name]
+#   ttl     = 300
+# }
 
 resource "aws_acm_certificate" "this" {
   provider          = aws.global
